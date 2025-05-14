@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { ProductProvider } from './contexts/ProductContext';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,11 +12,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3050'),
-  title: {
-    template: '%s | BthePrints',
-    default: 'BthePrints - Custom Screen Printing',
-  },
-  description: "Custom screen printing for any occasion. Quality apparel and designs.",
+  title: "BthePrints - Custom Apparel & Prints",
+  description: "Shop custom apparel, prints, and more at BthePrints. Quality custom designs for every occasion.",
   keywords: ["screen printing", "custom t-shirts", "apparel printing", "custom merchandise", "BthePrints"],
   authors: [{ name: "BthePrints" }],
   creator: "BthePrints",
@@ -23,10 +21,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://btheprints.com",
+    url: "/",
     siteName: "BthePrints",
-    title: "BthePrints - Custom Screen Printing",
-    description: "Custom screen printing for any occasion. Quality apparel and designs.",
+    title: "BthePrints - Custom Apparel & Prints",
+    description: "Shop custom apparel, prints, and more at BthePrints. Quality custom designs for every occasion.",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -38,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BthePrints - Custom Screen Printing",
-    description: "Custom screen printing for any occasion. Quality apparel and designs.",
+    title: "BthePrints - Custom Apparel & Prints",
+    description: "Shop custom apparel, prints, and more at BthePrints. Quality custom designs for every occasion.",
     images: ["/images/og-image.jpg"],
   },
   robots: {
@@ -67,17 +65,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased bg-white text-black`}>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <ProductProvider>
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </ProductProvider>
       </body>
     </html>
   );
