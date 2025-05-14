@@ -10,12 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://btheprints.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3050'),
   title: {
-    default: "BthePrints | Custom Screen Printing",
-    template: "%s | BthePrints",
+    template: '%s | BthePrints',
+    default: 'BthePrints - Custom Screen Printing',
   },
-  description: "Custom screen printing services for apparel, merchandise, and more. High-quality prints for individuals, teams, and businesses.",
+  description: "Custom screen printing for any occasion. Quality apparel and designs.",
   keywords: ["screen printing", "custom t-shirts", "apparel printing", "custom merchandise", "BthePrints"],
   authors: [{ name: "BthePrints" }],
   creator: "BthePrints",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://btheprints.com",
     siteName: "BthePrints",
-    title: "BthePrints | Custom Screen Printing",
-    description: "Custom screen printing services for apparel, merchandise, and more. You think it, we print it!",
+    title: "BthePrints - Custom Screen Printing",
+    description: "Custom screen printing for any occasion. Quality apparel and designs.",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BthePrints | Custom Screen Printing",
-    description: "Custom screen printing services for apparel, merchandise, and more.",
+    title: "BthePrints - Custom Screen Printing",
+    description: "Custom screen printing for any occasion. Quality apparel and designs.",
     images: ["/images/og-image.jpg"],
   },
   robots: {
