@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useCartStore } from "../../lib/store";
 import { getProductById } from "../../lib/products";
-export { generateMetadata } from './metadata';
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = getProductById(params.id);
