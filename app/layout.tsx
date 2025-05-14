@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://btheprints.com'),
   title: {
     default: "BthePrints | Custom Screen Printing",
     template: "%s | BthePrints",
