@@ -1,103 +1,167 @@
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
+import { getFeaturedProducts } from './lib/products';
+import ProductGallery from './components/ProductGallery';
+
+// Get featured products
+const featuredProducts = getFeaturedProducts();
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-brand-dark text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="md:w-1/2 mb-10 md:mb-0">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Custom <span className="text-brand-primary">Screen Printing</span> For Every Occasion
+              </h1>
+              <p className="text-xl mb-8 text-gray-300">
+                From apparel to merchandise - <span className="italic">you think it, we print it!</span>
+              </p>
+              <div className="flex space-x-4">
+                <Link 
+                  href="/shop" 
+                  className="btn-brand"
+                >
+                  Shop Now
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="px-4 py-2 border border-brand-primary text-brand-primary rounded-md hover:bg-gray-800 transition duration-200"
+                >
+                  Get a Quote
+                </Link>
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <div className="relative h-64 md:h-96">
+                <Image
+                  src="/images/placeholders/hero-placeholder.jpg"
+                  alt="Screen Printing Process"
+                  fill
+                  className="object-cover rounded-lg"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-16 h-16 mx-auto mb-4 text-brand-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Custom Designs</h3>
+              <p className="text-gray-600">Professional design services to bring your ideas to life</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 mx-auto mb-4 text-brand-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Quick Turnaround</h3>
+              <p className="text-gray-600">Fast production times to meet your deadlines</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 mx-auto mb-4 text-brand-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Bulk Orders</h3>
+              <p className="text-gray-600">Special pricing for large quantity orders</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Gallery */}
+      <ProductGallery />
+
+      {/* Featured Products */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-8">Featured Products</h2>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProducts.map((product) => (
+              <div key={product.id} className="group">
+                <div className="aspect-square overflow-hidden rounded-lg bg-gray-100 relative">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-200"
+                  />
+                  {product.customizable && (
+                    <div className="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded">
+                      Customizable
+                    </div>
+                  )}
+                </div>
+                <div className="mt-4">
+                  <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {product.colors?.join(", ")}
+                  </p>
+                  <div className="mt-2 flex items-center justify-between">
+                    <p className="text-lg font-medium text-gray-900">
+                      ${product.price.toFixed(2)}
+                    </p>
+                    {product.minOrder && product.minOrder > 1 && (
+                      <span className="text-sm text-gray-500">
+                        Min: {product.minOrder}
+                      </span>
+                    )}
+                  </div>
+                  <Link
+                    href={`/product/${product.id}`}
+                    className="mt-2 inline-block text-sm font-medium text-brand-primary hover:underline"
+                  >
+                    View Details
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-10 text-center">
+            <Link
+              href="/shop"
+              className="btn-brand inline-block"
+            >
+              View All Products
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-brand-dark text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Custom Project?</h2>
+          <p className="text-xl mb-8 text-gray-300">
+            Let's bring your ideas to life with our professional screen printing services
+          </p>
+          <Link
+            href="/contact"
+            className="btn-brand inline-block"
+          >
+            Get Started
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

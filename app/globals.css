@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-geist-sans: 'Geist Sans', system-ui, sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
+  --color-primary: #fbae17;
+  --color-accent-1: #f15a22;
+  --color-accent-2: #ed1c24;
+  --color-background: #181818;
+  --color-text: #ffffff;
+  --color-text-muted: #aaaaaa;
 }
 
 @theme inline {
@@ -23,4 +31,53 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Base styles */
+body {
+  @apply bg-white text-black antialiased;
+  font-family: var(--font-geist-sans);
+}
+
+/* Utility classes for branding colors */
+.bg-brand-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-brand-accent-1 {
+  background-color: var(--color-accent-1);
+}
+
+.bg-brand-accent-2 {
+  background-color: var(--color-accent-2);
+}
+
+.bg-brand-dark {
+  background-color: var(--color-background);
+}
+
+.text-brand-primary {
+  color: var(--color-primary);
+}
+
+/* Custom gradient for buttons and accents */
+.brand-gradient {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent-1), var(--color-accent-2));
+}
+
+/* Custom header style */
+.brand-header {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Custom button styles */
+.btn-brand {
+  @apply px-4 py-2 rounded-md transition duration-200;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.btn-brand:hover {
+  background-color: var(--color-accent-1);
 }
