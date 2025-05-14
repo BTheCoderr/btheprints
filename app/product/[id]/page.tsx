@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { useCartStore } from "../../lib/store";
 import { Product, getProductById } from "../../lib/products";
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
@@ -34,13 +40,6 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     },
   };
 }
-
-"use client";
-
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { useCartStore } from "../../lib/store";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = getProductById(params.id);

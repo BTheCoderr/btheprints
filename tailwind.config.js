@@ -4,9 +4,13 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+      },
       colors: {
         'brand-yellow': '#FFD700',
         'brand-orange': '#FFA500',
