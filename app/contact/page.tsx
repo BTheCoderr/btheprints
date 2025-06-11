@@ -27,15 +27,15 @@ export default function Contact() {
     setErrorMessage("");
     
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // Create form data for Netlify
+      const form = e.target as HTMLFormElement;
+      const formDataToSend = new FormData(form);
       
-      const data = await response.json();
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formDataToSend as any).toString(),
+      });
       
       if (response.ok) {
         setSubmitStatus("success");
@@ -52,7 +52,7 @@ export default function Contact() {
         }, 5000);
       } else {
         setSubmitStatus("error");
-        setErrorMessage(data.message || "Something went wrong. Please try again later.");
+        setErrorMessage("Failed to send transmission. Please try again.");
       }
     } catch (error) {
       setSubmitStatus("error");
