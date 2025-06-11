@@ -26,40 +26,22 @@ export default function Contact() {
     setSubmitStatus(null);
     setErrorMessage("");
     
-    try {
-      // Create form data for Netlify
-      const form = e.target as HTMLFormElement;
-      const formDataToSend = new FormData(form);
-      
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formDataToSend as any).toString(),
+    // Simulate form submission for now - will connect to email service later
+    setTimeout(() => {
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
       });
-      
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: ""
-        });
-        
-        // Reset status after 5 seconds
-        setTimeout(() => {
-          setSubmitStatus(null);
-        }, 5000);
-      } else {
-        setSubmitStatus("error");
-        setErrorMessage("Failed to send transmission. Please try again.");
-      }
-    } catch (error) {
-      setSubmitStatus("error");
-      setErrorMessage("Network error. Please check your connection and try again.");
-    } finally {
       setIsSubmitting(false);
-    }
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    }, 2000);
   };
 
   return (
@@ -214,17 +196,9 @@ export default function Contact() {
                 <h3 className="text-2xl font-black mb-6 neon-text">SEND TRANSMISSION</h3>
                 
                 <form 
-                  name="contact" 
-                  method="POST" 
-                  data-netlify="true" 
-                  netlify-honeypot="bot-field"
                   onSubmit={handleSubmit} 
                   className="space-y-6"
                 >
-                  <input type="hidden" name="form-name" value="contact" />
-                  <div className="hidden">
-                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                  </div>
                   {submitStatus === "success" && (
                     <motion.div
                       className="neon-border bg-green-50/10 backdrop-blur-sm border-green-500/50 rounded-xl p-4 mb-6"
