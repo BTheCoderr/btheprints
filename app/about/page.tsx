@@ -1,144 +1,198 @@
-import { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "About BthePrints | Custom Screen Printing",
-  description: "Learn about BthePrints, a premier custom screen printing company specializing in high-quality apparel and merchandise for individuals, teams, and businesses.",
-};
+import { motion } from 'framer-motion';
+import ParticleBackground from '../components/ParticleBackground';
 
 export default function About() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Section */}
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-bold mb-6">About BthePrints</h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Your trusted partner for high-quality custom screen printing.
-        </p>
-        <div className="h-1 w-20 mx-auto brand-gradient rounded"></div>
-      </div>
+    <div className="min-h-screen relative">
+      <ParticleBackground />
       
-      {/* Our Story */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-center">
-        <div>
-          <h2 className="text-3xl font-bold mb-4">Our Story</h2>
-          <p className="text-gray-600 mb-4">
-            BthePrints began with a passion for creative expression through custom apparel. 
-            Founded in 2018, we started as a small operation printing designs for friends 
-            and local businesses in our hometown.
-          </p>
-          <p className="text-gray-600 mb-4">
-            What began as a side project quickly grew into a full-fledged business as word 
-            spread about our commitment to quality, creativity, and customer satisfaction. 
-            Today, we proudly serve clients nationwide, from individuals seeking custom pieces 
-            to businesses looking for branded merchandise.
-          </p>
-          <p className="text-gray-600">
-            Our motto <span className="font-medium italic">"You think it, we print it"</span> reflects 
-            our dedication to bringing your creative visions to life, no matter how simple or complex.
-          </p>
-        </div>
-        <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-          <div className="text-gray-500">Image Placeholder</div>
-        </div>
+      {/* About Content */}
+      <div className="relative z-10 container mx-auto px-6 py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          {/* Header */}
+          <div className="text-center mb-16">
+            <motion.h1 
+              className="text-4xl md:text-6xl font-bold mb-6 holographic-text"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Entity Profile
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-gray-100 max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Advanced printing systems. Quantum-level precision. Superior output protocols.
+            </motion.p>
+          </div>
+
+          {/* About Content */}
+          <motion.div
+            className="glass-panel p-8 rounded-2xl border border-brand-primary/30"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <div className="space-y-8 text-gray-100">
+              <section>
+                <h2 className="text-2xl font-bold text-brand-primary mb-4 holographic-text">
+                  Origin Protocol
+                </h2>
+                <p className="mb-4">
+                  BthePrints.exe launched in 2024 with a focused mission: bring cutting-edge creative expression 
+                  to screen printing through innovative technology. Starting as a passion project, we've processed 
+                  custom designs for local creators and growing businesses.
+                </p>
+                <p className="mb-4">
+                  Through dedication to quality, creative innovation, and exceptional customer service, 
+                  we're building our reputation one satisfied customer at a time as we scale our operations.
+                </p>
+                <p>
+                  Core directive: <span className="font-bold text-brand-primary">"You.think(it) → We.print(it)"</span> 
+                  - Unlimited creative processing capability.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-brand-primary mb-4 holographic-text">
+                  System Protocols
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center p-4 border border-brand-primary/20 rounded-lg">
+                    <div className="text-3xl font-bold text-brand-primary mb-2">01</div>
+                    <h3 className="font-bold text-brand-primary mb-2">Design.Initialize()</h3>
+                    <p className="text-sm">Collaborative design matrix. Input creative parameters or upload existing data.</p>
+                  </div>
+                  <div className="text-center p-4 border border-brand-primary/20 rounded-lg">
+                    <div className="text-3xl font-bold text-brand-primary mb-2">02</div>
+                    <h3 className="font-bold text-brand-primary mb-2">Print.Execute()</h3>
+                    <p className="text-sm">Quantum-precision screen printing arrays deploy your design onto premium substrates.</p>
+                  </div>
+                  <div className="text-center p-4 border border-brand-primary/20 rounded-lg">
+                    <div className="text-3xl font-bold text-brand-primary mb-2">03</div>
+                    <h3 className="font-bold text-brand-primary mb-2">Deliver.Complete()</h3>
+                    <p className="text-sm">Quality verification protocols engaged. Secure packaging systems deployed.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-brand-primary mb-4 holographic-text">
+                  Hardware Specifications
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-lg font-bold text-brand-primary mb-3">Printing Matrix</h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span>M&R Sportsman EX 8-color.array</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span>Riley Hopkins 6-color.system</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span>Flash_dryer.pro + conveyor.belt</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-brand-primary mb-3">Design Protocol</h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                        <span>Adobe_Creative.suite_max</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                        <span>Wacom_interface.tablets</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                        <span>Color_separation.ai</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-brand-primary mb-4 holographic-text">
+                  Quality Assurance Protocol
+                </h2>
+                <p>
+                  At BthePrints, our quality control process ensures every print meets our high standards. 
+                  If your order doesn't meet your expectations, we'll work with you to make it right. 
+                  <span className="text-brand-primary font-bold">Customer_Satisfaction.exe - Always Active</span>
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-brand-primary mb-4 holographic-text">
+                  System Operators
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-brand-primary/20 to-purple-500/20 rounded-full mx-auto mb-3 flex items-center justify-center border border-brand-primary/30">
+                      <span className="text-brand-primary font-bold">AVATAR_001</span>
+                    </div>
+                    <h3 className="font-bold text-brand-primary">John.exe</h3>
+                    <p className="text-sm text-gray-300">Founder & Lead.Operator</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-brand-primary/20 to-purple-500/20 rounded-full mx-auto mb-3 flex items-center justify-center border border-brand-primary/30">
+                      <span className="text-brand-primary font-bold">AVATAR_002</span>
+                    </div>
+                    <h3 className="font-bold text-brand-primary">Jane.ai</h3>
+                    <p className="text-sm text-gray-300">Design.Director</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-brand-primary/20 to-purple-500/20 rounded-full mx-auto mb-3 flex items-center justify-center border border-brand-primary/30">
+                      <span className="text-brand-primary font-bold">AVATAR_003</span>
+                    </div>
+                    <h3 className="font-bold text-brand-primary">Mike.sys</h3>
+                    <p className="text-sm text-gray-300">Production.Manager</p>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-brand-primary mb-4 holographic-text">
+                  System Contact
+                </h2>
+                <p>
+                  For questions regarding our entity profile, contact us at:
+                </p>
+                <div className="mt-4 p-4 bg-brand-primary/10 rounded-lg border border-brand-primary/30">
+                  <p className="font-mono text-brand-primary">
+                    Email: info@btheprints.com<br />
+                    Entity.Status: ACTIVE<br />
+                    Last Updated: {new Date().toLocaleDateString()}
+                  </p>
+                </div>
+              </section>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
+
+      {/* Cyber Grid Effect */}
+      <div className="absolute inset-0 cyber-grid opacity-10" />
       
-      {/* Our Process */}
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold mb-8 text-center">Our Process</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gray-50 p-6 rounded-lg text-center">
-            <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">1</div>
-            <h3 className="text-xl font-bold mb-2">Design</h3>
-            <p className="text-gray-600">
-              Work with our design team to create your vision or submit your own artwork. 
-              We'll ensure it's optimized for the best print quality.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg text-center">
-            <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">2</div>
-            <h3 className="text-xl font-bold mb-2">Print</h3>
-            <p className="text-gray-600">
-              Using state-of-the-art screen printing equipment, we carefully transfer your 
-              design onto high-quality materials with precision and vibrant colors.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg text-center">
-            <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">3</div>
-            <h3 className="text-xl font-bold mb-2">Deliver</h3>
-            <p className="text-gray-600">
-              After thorough quality checks, we carefully package and ship your 
-              custom-printed items right to your door.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Our Equipment */}
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold mb-8 text-center">Our Equipment</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">Screen Printing</h3>
-            <p className="text-gray-600 mb-4">
-              We use professional-grade manual and automatic screen printing presses 
-              that allow us to handle both small and large orders with consistent quality. 
-              Our equipment can print up to 8 colors, allowing for vibrant, detailed designs.
-            </p>
-            <ul className="list-disc pl-5 text-gray-600 space-y-2">
-              <li>M&R Sportsman EX 8-color press</li>
-              <li>Riley Hopkins 6-color press</li>
-              <li>Professional flash dryers and conveyor dryer</li>
-              <li>Exposure unit for precise screen development</li>
-            </ul>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">Design & Pre-Press</h3>
-            <p className="text-gray-600 mb-4">
-              Our design studio is equipped with industry-standard software and hardware to 
-              create, modify, and prepare artwork for optimal printing results.
-            </p>
-            <ul className="list-disc pl-5 text-gray-600 space-y-2">
-              <li>Adobe Creative Suite (Photoshop, Illustrator)</li>
-              <li>Professional design tablets</li>
-              <li>Color separation software</li>
-              <li>Custom screen preparation area</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      {/* Quality Promise */}
-      <div className="bg-brand-gradient text-white p-8 rounded-lg mb-16">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Our Quality Promise</h2>
-          <p className="text-lg mb-0">
-            At BthePrints, we stand behind the quality of our work. If you're not 100% 
-            satisfied with your order, we'll make it right. That's our guarantee.
-          </p>
-        </div>
-      </div>
-      
-      {/* Team */}
-      <div>
-        <h2 className="text-3xl font-bold mb-8 text-center">Meet Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="h-56 w-56 bg-gray-200 rounded-full mx-auto mb-4"></div>
-            <h3 className="text-xl font-bold">John Doe</h3>
-            <p className="text-gray-600">Founder & Lead Printer</p>
-          </div>
-          <div className="text-center">
-            <div className="h-56 w-56 bg-gray-200 rounded-full mx-auto mb-4"></div>
-            <h3 className="text-xl font-bold">Jane Smith</h3>
-            <p className="text-gray-600">Design Director</p>
-          </div>
-          <div className="text-center">
-            <div className="h-56 w-56 bg-gray-200 rounded-full mx-auto mb-4"></div>
-            <h3 className="text-xl font-bold">Mike Johnson</h3>
-            <p className="text-gray-600">Production Manager</p>
-          </div>
-        </div>
-      </div>
+      {/* Scan Lines */}
+      <div className="absolute inset-0 scan-lines opacity-20" />
     </div>
   );
 } 
