@@ -213,7 +213,18 @@ export default function Contact() {
               <div className="glass-card-enhanced p-8 relative overflow-hidden">
                 <h3 className="text-2xl font-black mb-6 neon-text">SEND TRANSMISSION</h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  name="contact" 
+                  method="POST" 
+                  data-netlify="true" 
+                  netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <div className="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                  </div>
                   {submitStatus === "success" && (
                     <motion.div
                       className="neon-border bg-green-50/10 backdrop-blur-sm border-green-500/50 rounded-xl p-4 mb-6"
@@ -328,16 +339,16 @@ export default function Contact() {
                     />
                   </div>
                   
-                  <button type="submit" className="w-full">
-                    <CyberButton
-                      variant="neon"
-                      size="lg"
-                      disabled={isSubmitting}
-                      glitchEffect
-                    >
-                      {isSubmitting ? "TRANSMITTING..." : "SEND TRANSMISSION"}
-                    </CyberButton>
-                  </button>
+                  <CyberButton
+                    variant="neon"
+                    size="lg"
+                    disabled={isSubmitting}
+                    glitchEffect
+                    type="submit"
+                    className="w-full"
+                  >
+                    {isSubmitting ? "TRANSMITTING..." : "SEND TRANSMISSION"}
+                  </CyberButton>
                 </form>
 
                 {/* Corner accents */}

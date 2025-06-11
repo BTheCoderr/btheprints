@@ -12,6 +12,7 @@ interface CyberButtonProps {
   disabled?: boolean;
   glitchEffect?: boolean;
   magneticEffect?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function CyberButton({
@@ -23,6 +24,7 @@ export default function CyberButton({
   disabled = false,
   glitchEffect = false,
   magneticEffect = true,
+  type = 'button',
 }: CyberButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
@@ -66,6 +68,7 @@ export default function CyberButton({
 
   return (
     <motion.button
+      type={type}
       className={baseClasses}
       onClick={!disabled ? onClick : undefined}
       onMouseEnter={() => setIsHovered(true)}

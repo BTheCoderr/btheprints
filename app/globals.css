@@ -415,30 +415,48 @@
     color: #E4E4E7 !important;
   }
 
-  /* Global text contrast improvements */
+  /* Enhanced text contrast for accessibility - Perfect for older users */
   .text-gray-600 {
-    color: #D1D5DB !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: 500;
   }
   
   .text-gray-400 {
-    color: #F3F4F6 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: 500;
   }
   
   .text-gray-200 {
     color: #FFFFFF !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: 600;
   }
   
   .text-gray-300 {
-    color: #F9FAFB !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: 500;
   }
 
   .text-gray-100 {
     color: #FFFFFF !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+  }
+
+  /* Enhanced readability for all body text */
+  p, span, div {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Extra high contrast for important text */
+  .high-contrast-text {
+    color: #FFFFFF !important;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+    font-weight: 700;
+    letter-spacing: 0.5px;
   }
 
   /* Glass Panel Effects */
