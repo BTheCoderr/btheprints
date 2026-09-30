@@ -1,5 +1,11 @@
 # BthePrints Website
 
+<!-- repo-intro:start -->
+**Project snapshot:** BthePrints is an e-commerce storefront concept for a custom screen-printing brand, organized around apparel categories, custom orders, mobile shopping, and a strong visual identity.
+
+**What it demonstrates:** Next.js · TypeScript · Tailwind CSS · commerce UX · responsive product catalog.
+<!-- repo-intro:end -->
+
 A modern e-commerce website for BthePrints, a screen printing business specializing in custom apparel and merchandise.
 
 ## Features
